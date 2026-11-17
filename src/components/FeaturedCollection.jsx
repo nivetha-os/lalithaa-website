@@ -26,11 +26,18 @@ export default function FeaturedCollection({
         {/* Main Grid: Left Intro + 3 Featured Products + Our Story Panel */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
           
-          {/* 1. Left Editorial Intro Column */}
-          <div className="lg:col-span-3 flex flex-col justify-between py-1 pr-2">
+          {/* 1. Left Editorial Intro Column - Slides in from LEFT */}
+          <motion.div 
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1.0] }}
+            className="lg:col-span-3 flex flex-col justify-between py-1 pr-2"
+          >
             <div>
               <div className="flex items-center gap-2 mb-2.5">
-                <span className="text-[10px] font-sans font-semibold tracking-[0.25em] uppercase text-platinum/80">
+                <span className="text-[10px] font-sans font-semibold tracking-[0.25em] uppercase text-platinum/80 flex items-center gap-1.5">
+                  <span className="text-btn-hover animate-pulse">✦</span>
                   FEATURED COLLECTION
                 </span>
                 <span className="w-5 h-[1px] bg-white/40" />
@@ -48,34 +55,39 @@ export default function FeaturedCollection({
             </div>
 
             <div>
-              <a
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.96 }}
                 href="#collections"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-platinum text-midnight text-[11px] font-sans font-semibold tracking-[0.18em] uppercase transition-all duration-300 shadow-md group"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-platinum text-midnight text-[11px] font-sans font-semibold tracking-[0.18em] uppercase transition-all duration-300 shadow-lg hover:shadow-xl group"
               >
                 <span>VIEW COLLECTION</span>
                 <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
 
-          {/* 2. Middle 3 Product Cards Column (Crisp White Luxury Cards) */}
+          {/* 2. Middle 3 Product Cards Column - Slides UP in Cascade */}
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-3 gap-3.5 items-stretch">
-            {featuredProducts.map((product) => {
+            {featuredProducts.map((product, idx) => {
               const isWishlisted = wishlist.some((item) => item.id === product.id);
 
               return (
                 <motion.div
                   key={product.id}
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: 55 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="group bg-white rounded-xl sm:rounded-2xl border border-border-card hover:border-border-silver p-3 sm:p-3.5 flex flex-col justify-between transition-all duration-300 hover:shadow-card-hover relative cursor-pointer min-h-[250px] sm:min-h-[270px] text-midnight shadow-md"
+                  viewport={{ once: true, margin: "-50px" }}
+                  whileHover={{ y: -6, transition: { type: "spring", stiffness: 350, damping: 25 } }}
+                  transition={{ duration: 0.7, delay: 0.15 + idx * 0.12, ease: [0.21, 1.02, 0.49, 0.99] }}
+                  className="group bg-white rounded-xl sm:rounded-2xl border border-border-card hover:border-slate-navy/30 p-3 sm:p-3.5 flex flex-col justify-between transition-colors duration-300 hover:shadow-2xl relative cursor-pointer min-h-[250px] sm:min-h-[270px] text-midnight shadow-md"
                   onClick={() => onQuickView && onQuickView(product)}
                 >
                   {/* Top Wishlist Heart Icon */}
                   <div className="flex justify-end">
-                    <button
+                    <motion.button
+                      whileTap={{ scale: 1.35 }}
+                      whileHover={{ scale: 1.15 }}
                       onClick={(e) => {
                         e.stopPropagation();
                         onToggleWishlist && onToggleWishlist(product);
@@ -88,23 +100,26 @@ export default function FeaturedCollection({
                           isWishlisted ? "fill-red-500 text-red-500" : "stroke-[1.5]"
                         }`} 
                       />
-                    </button>
+                    </motion.button>
                   </div>
 
-                  {/* Product Diamond Image on Dark Blue Attai */}
-                  <div className="w-full h-28 sm:h-32 flex items-center justify-center my-1 overflow-hidden rounded-xl bg-gradient-to-b from-[#0A1D36] via-[#071933] to-[#040E1C] border border-[#0A2240] p-1.5 shadow-inner">
+                  {/* Product Diamond Image on Dark Blue Attai with Shimmer */}
+                  <div className="w-full h-28 sm:h-32 flex items-center justify-center my-1 overflow-hidden relative rounded-xl bg-gradient-to-b from-[#0A1D36] via-[#071933] to-[#040E1C] border border-[#0A2240] p-1.5 shadow-inner">
                     <img
                       src={product.image}
                       alt={product.name}
                       onError={(e) => handleImageError(e, product.category || product.categoryId)}
-                      className="w-full h-full object-cover rounded-lg transform transition-transform duration-500 group-hover:scale-108 drop-shadow-md"
+                      className="w-full h-full object-cover rounded-lg transform transition-transform duration-700 ease-out group-hover:scale-110 drop-shadow-md"
                       loading="lazy"
                     />
+
+                    {/* Diamond Light Sweep / Shimmer */}
+                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none skew-x-12" />
                   </div>
 
                   {/* Product Details */}
                   <div className="pt-2 border-t border-platinum/40">
-                    <h3 className="text-xs sm:text-[13px] font-sans font-medium text-midnight truncate mb-1">
+                    <h3 className="text-xs sm:text-[13px] font-sans font-medium text-midnight truncate mb-1 group-hover:text-btn-primary transition-colors">
                       {product.name}
                     </h3>
                     <p className="text-xs sm:text-[13px] font-sans font-bold text-midnight">
@@ -116,15 +131,22 @@ export default function FeaturedCollection({
             })}
           </div>
 
-          {/* 3. Right: OUR STORY Promotional Panel matching Reference Design */}
-          <div className="lg:col-span-4 rounded-2xl overflow-hidden bg-gradient-to-br from-[#0B2548] via-[#071933] to-[#0A1F3D] text-white p-6 sm:p-7 flex flex-col justify-between relative shadow-xl min-h-[250px] sm:min-h-[270px] border border-white/15">
+          {/* 3. Right: OUR STORY Promotional Panel - Slides in from RIGHT */}
+          <motion.div 
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            whileHover={{ y: -4, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
+            className="lg:col-span-4 rounded-2xl overflow-hidden bg-gradient-to-br from-[#0B2548] via-[#071933] to-[#0A1F3D] text-white p-6 sm:p-7 flex flex-col justify-between relative shadow-xl min-h-[250px] sm:min-h-[270px] border border-white/15 hover:border-white/30 transition-all duration-300 group"
+          >
             {/* Background silk & brooch image on the right */}
             <div className="absolute top-0 right-0 bottom-0 w-[55%] pointer-events-none overflow-hidden">
               <img
                 src="/images/custom/story_brooch.jpg"
                 alt="Our Story Diamond Brooch"
                 onError={(e) => handleImageError(e, 'accessories')}
-                className="w-full h-full object-cover object-center opacity-85"
+                className="w-full h-full object-cover object-center opacity-85 transform transition-transform duration-700 ease-out group-hover:scale-108"
                 loading="lazy"
               />
               {/* Dark Blue gradient to seamlessly blend text */}
@@ -154,13 +176,13 @@ export default function FeaturedCollection({
             <div className="relative z-10">
               <button
                 onClick={onKnowMore}
-                className="inline-flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.2em] uppercase text-white hover:text-platinum transition-colors group"
+                className="inline-flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.2em] uppercase text-white hover:text-blue-100 transition-colors group/btn"
               >
                 <span>KNOW MORE</span>
-                <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 transform group-hover/btn:translate-x-1.5 transition-transform" />
               </button>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

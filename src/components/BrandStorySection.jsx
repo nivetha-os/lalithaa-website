@@ -20,10 +20,17 @@ export default function BrandStorySection({ onKnowMore }) {
       <div className="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Editorial Heritage Narrative */}
-          <div className="lg:col-span-6">
+          {/* Left Column: Editorial Heritage Narrative - Slides in from LEFT */}
+          <motion.div 
+            initial={{ opacity: 0, x: -70 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.85, ease: [0.25, 0.1, 0.25, 1.0] }}
+            className="lg:col-span-6"
+          >
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="text-[10px] sm:text-[11px] font-sans font-semibold tracking-[0.3em] uppercase text-slate-navy">
+              <span className="text-[10px] sm:text-[11px] font-sans font-semibold tracking-[0.3em] uppercase text-slate-navy flex items-center gap-1.5">
+                <span className="text-btn-primary animate-pulse">✦</span>
                 OUR STORY &bull; SINCE 1950
               </span>
               <span className="w-8 h-[1px] bg-slate-navy/30" />
@@ -39,68 +46,77 @@ export default function BrandStorySection({ onKnowMore }) {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mb-8 text-left">
-              <div className="p-3.5 rounded-xl bg-white border border-border-card shadow-sm">
-                <ShieldCheck className="w-4 h-4 text-btn-primary mb-1.5" />
-                <h4 className="text-xs font-sans font-semibold text-midnight">GIA Certified</h4>
-                <p className="text-[10px] text-slate-navy/70 mt-0.5">D-Flawless natural diamonds</p>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-white border border-border-card shadow-sm">
-                <Sparkles className="w-4 h-4 text-btn-primary mb-1.5" />
-                <h4 className="text-xs font-sans font-semibold text-midnight">Platinum 950</h4>
-                <p className="text-[10px] text-slate-navy/70 mt-0.5">Noble hypoallergenic purity</p>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-white border border-border-card shadow-sm">
-                <Award className="w-4 h-4 text-btn-primary mb-1.5" />
-                <h4 className="text-xs font-sans font-semibold text-midnight">Hearts & Arrows</h4>
-                <p className="text-[10px] text-slate-navy/70 mt-0.5">Triple excellent symmetry</p>
-              </div>
+              {[
+                { icon: ShieldCheck, title: "GIA Certified", desc: "D-Flawless natural diamonds" },
+                { icon: Sparkles, title: "Platinum 950", desc: "Noble hypoallergenic purity" },
+                { icon: Award, title: "Hearts & Arrows", desc: "Triple excellent symmetry" }
+              ].map((item, idx) => (
+                <motion.div 
+                  key={item.title}
+                  initial={{ opacity: 0, x: -30, y: 20 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  whileHover={{ y: -4, scale: 1.02, transition: { type: "spring", stiffness: 350, damping: 25 } }}
+                  transition={{ duration: 0.5, delay: 0.25 + idx * 0.12 }}
+                  className="p-3.5 rounded-xl bg-white border border-border-card hover:border-btn-primary/40 shadow-sm hover:shadow-md transition-colors cursor-pointer group"
+                >
+                  <item.icon className="w-4 h-4 text-btn-primary mb-1.5 transform group-hover:scale-110 transition-transform" />
+                  <h4 className="text-xs font-sans font-semibold text-midnight group-hover:text-btn-primary transition-colors">{item.title}</h4>
+                  <p className="text-[10px] text-slate-navy/70 mt-0.5">{item.desc}</p>
+                </motion.div>
+              ))}
             </div>
 
-            <button
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
               onClick={onKnowMore}
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-btn-primary hover:bg-btn-hover text-white text-xs font-sans font-medium tracking-[0.18em] uppercase transition-all duration-300 shadow-md"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-btn-primary hover:bg-btn-hover text-white text-xs font-sans font-medium tracking-[0.18em] uppercase transition-all duration-300 shadow-md hover:shadow-xl group"
             >
               <span>DISCOVER OUR HERITAGE</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
+              <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform" />
+            </motion.button>
+          </motion.div>
 
-          {/* Right Column: Photography Showcase */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative rounded-3xl overflow-hidden border border-border-card shadow-2xl bg-midnight h-[360px] sm:h-[420px]">
+          {/* Right Column: Photography Showcase - Slides in from RIGHT */}
+          <motion.div 
+            initial={{ opacity: 0, x: 70 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.85, ease: [0.25, 0.1, 0.25, 1.0] }}
+            className="lg:col-span-6 relative"
+          >
+            <div className="relative rounded-3xl overflow-hidden border border-border-card shadow-2xl bg-midnight h-[360px] sm:h-[420px] group">
               <img
                 src="/images/custom/story_brooch.jpg"
                 alt="Lalitha Master Diamond Brooch"
                 onError={(e) => handleImageError(e, 'accessories')}
-                className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-transparent to-transparent pointer-events-none" />
-              
-              <div className="absolute bottom-5 left-5 right-5 text-white">
-                <p className="text-[10px] font-sans uppercase tracking-[0.25em] text-platinum/80 mb-1">
-                  Atelier Haute Joaillerie
-                </p>
-                <h3 className="font-serif text-lg sm:text-xl text-white">
-                  Hand-set in Noble Platinum by Master Diamantaires
-                </h3>
-              </div>
-            </div>
 
-            {/* Overlapping Archival Craftsmanship Inset Badge */}
-            <div className="absolute -bottom-5 -left-5 hidden sm:flex items-center gap-3 p-3 rounded-2xl bg-white border border-border-card shadow-xl z-20 max-w-xs">
-              <img
-                src="/images/craftsmanship-1.jpg"
-                alt="Master Diamantaire Workshop"
-                className="w-14 h-14 rounded-xl object-cover"
-              />
-              <div>
-                <span className="text-[9px] font-sans uppercase tracking-widest text-slate-navy/70 block">Seven Decades</span>
-                <p className="font-serif text-xs font-semibold text-midnight leading-tight">Master Goldsmith Bench</p>
-              </div>
+              {/* Light Shimmer Sweep */}
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none skew-x-12" />
+
+              {/* Floating Craftsmanship Badge with Ambient Animation */}
+              <motion.div 
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-[#071933]/90 backdrop-blur-md border border-white/20 text-white shadow-2xl flex items-center justify-between"
+              >
+                <div>
+                  <p className="text-[10px] tracking-widest uppercase text-platinum/70 font-sans flex items-center gap-1">
+                    <span className="text-white animate-pulse">✦</span>
+                    MASTERPIECE VAULT
+                  </p>
+                  <p className="font-serif text-sm sm:text-base text-white mt-0.5">The Sovereign Flora Diamond Brooch</p>
+                </div>
+                <span className="text-[10px] uppercase font-sans font-semibold tracking-wider px-2.5 py-1 rounded-full bg-white/10 border border-white/20 text-white shrink-0">
+                  Platinum 950
+                </span>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

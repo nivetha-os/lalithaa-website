@@ -36,12 +36,20 @@ export default function ContactSection({ onBookingSuccess }) {
 
       <div className="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
         
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        {/* Header with Top-Drop Slide Animation */}
+        <motion.div 
+          initial={{ opacity: 0, y: -35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.75, ease: [0.25, 0.1, 0.25, 1.0] }}
+          className="text-center max-w-2xl mx-auto mb-14"
+        >
           <div className="inline-flex items-center gap-2 mb-2.5">
             <span className="w-8 h-[1px] bg-white/30" />
-            <span className="text-[10px] sm:text-[11px] font-sans font-semibold tracking-[0.3em] uppercase text-platinum/80">
+            <span className="text-[10px] sm:text-[11px] font-sans font-semibold tracking-[0.3em] uppercase text-platinum/80 flex items-center gap-1.5">
+              <span className="text-btn-hover animate-pulse">✦</span>
               PRIVATE CLIENT SERVICES
+              <span className="text-btn-hover animate-pulse">✦</span>
             </span>
             <span className="w-8 h-[1px] bg-white/30" />
           </div>
@@ -52,13 +60,19 @@ export default function ContactSection({ onBookingSuccess }) {
           <p className="text-xs sm:text-sm text-platinum/75 font-sans font-light leading-relaxed">
             Experience Lalitha’s haute joaillerie in an exclusive private suite curated by our Master Diamantaires.
           </p>
-        </div>
+        </motion.div>
 
         {/* Content Grid: Symmetrically Aligned Salons Info + Booking Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* Left Column: Salon Ateliers & Locations */}
-          <div className="lg:col-span-5 bg-[#0A1D36] border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col justify-between">
+          {/* Left Column: Salon Ateliers & Locations - Slides in from Bottom-Left */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50, y: 50 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.85, ease: [0.25, 0.1, 0.25, 1.0] }}
+            className="lg:col-span-5 bg-[#0A1D36] border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col justify-between"
+          >
             <div>
               {/* Header inside Left Card */}
               <div className="flex items-center gap-2 mb-2 pb-2.5 border-b border-white/10">
@@ -71,12 +85,13 @@ export default function ContactSection({ onBookingSuccess }) {
                 Private viewing suites for champagne curation, GIA natural diamond inspection, and bespoke bridal creations.
               </p>
 
-              {/* 3 Boutique Locations */}
+              {/* 3 Boutique Locations with subtle slide on hover */}
               <div className="space-y-3">
                 {salons.map((salon) => (
-                  <div 
+                  <motion.div 
                     key={salon.city} 
-                    className="p-3.5 rounded-xl bg-[#071426] border border-white/10 hover:border-white/25 transition-all group"
+                    whileHover={{ x: 5, transition: { type: "spring", stiffness: 350, damping: 25 } }}
+                    className="p-3.5 rounded-xl bg-[#071426] border border-white/10 hover:border-white/25 transition-colors group cursor-pointer"
                   >
                     <div className="flex items-start justify-between">
                       <div>
@@ -95,7 +110,7 @@ export default function ContactSection({ onBookingSuccess }) {
                         {salon.phone}
                       </span>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -112,19 +127,27 @@ export default function ContactSection({ onBookingSuccess }) {
                 </div>
               </div>
 
-              <a
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="https://wa.me/919840000000"
                 target="_blank"
                 rel="noreferrer"
                 className="px-4 py-2 rounded-full bg-white text-midnight hover:bg-platinum text-[10px] font-sans font-semibold uppercase tracking-wider transition-colors shrink-0 shadow-sm"
               >
                 Chat Now
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Interactive Consultation Booking Form */}
-          <div className="lg:col-span-7 bg-[#0A1D36] border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col justify-between">
+          {/* Right Column: Interactive Consultation Booking Form - Slides in from Bottom-Right */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50, y: 50 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.85, ease: [0.25, 0.1, 0.25, 1.0] }}
+            className="lg:col-span-7 bg-[#0A1D36] border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col justify-between"
+          >
             {!submitted ? (
               <form onSubmit={handleSubmit} className="flex flex-col justify-between h-full space-y-4">
                 <div>
@@ -251,13 +274,15 @@ export default function ContactSection({ onBookingSuccess }) {
                 </div>
 
                 <div className="pt-3">
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="w-full py-3.5 rounded-full bg-white text-midnight hover:bg-platinum font-sans font-semibold text-xs tracking-[0.2em] uppercase transition-all duration-300 shadow-md flex items-center justify-center gap-2 group"
+                    className="w-full py-3.5 rounded-full bg-white text-midnight hover:bg-platinum font-sans font-semibold text-xs tracking-[0.2em] uppercase transition-all duration-300 shadow-md flex items-center justify-center gap-2 group cursor-pointer"
                   >
                     <span>CONFIRM VIP CONSULTATION</span>
                     <Sparkles className="w-3.5 h-3.5 transform group-hover:rotate-12 transition-transform" />
-                  </button>
+                  </motion.button>
                 </div>
               </form>
             ) : (
@@ -277,7 +302,7 @@ export default function ContactSection({ onBookingSuccess }) {
                 </button>
               </div>
             )}
-          </div>
+          </motion.div>
 
         </div>
 

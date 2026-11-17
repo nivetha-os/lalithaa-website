@@ -14,15 +14,17 @@ export default function Hero({ onExploreClick }) {
   return (
     <section 
       id="hero" 
-      className="relative w-full min-h-[640px] lg:min-h-[700px] xl:min-h-[760px] bg-[#071426] overflow-hidden flex items-center pt-24 pb-12"
+      className="relative w-full mt-16 sm:mt-[68px] h-[480px] sm:h-[520px] md:h-[550px] lg:h-[580px] xl:h-[620px] bg-[#071426] overflow-hidden flex items-center"
     >
       {/* =========================================================================
           BACKGROUND: 100% Crystal-Clear Full-Cover AI Fashion Video
-          Starts strictly below navbar zone so navbar NEVER covers or disturbs the video
-          "don't cover the AI video in navbar. because, navbar shouldn't disturb"
+          - Positioned with inset-0 inside section which starts strictly below navbar
+            (mt-16 sm:mt-[68px]), so video CANNOT touch, cover, or disturb header navbar.
+          - Y-aligned to ~60% so face, earrings, and full necklace are completely visible
+            within the compact, elegant hero height.
           ========================================================================= */}
-      <div className="absolute top-16 sm:top-[68px] inset-x-0 bottom-0 z-0 overflow-hidden pointer-events-none">
-        {/* Full-Cover HTML5 AI Fashion Video (Raw, Crystal-Clear, Vivid) */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Full-Cover HTML5 AI Fashion Video */}
         <video
           ref={videoRef}
           autoPlay
@@ -30,7 +32,7 @@ export default function Hero({ onExploreClick }) {
           loop
           playsInline
           poster="/images/hero-poster.jpg"
-          className="w-full h-full object-cover object-[68%_15%] md:object-[64%_12%] xl:object-[62%_10%]"
+          className="w-full h-full object-cover object-[46%_64%] sm:object-[42%_62%] md:object-[38%_60%] lg:object-[35%_58%] xl:object-[32%_56%] translate-x-4 sm:translate-x-8 md:translate-x-12 lg:translate-x-16 transition-all duration-500"
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
           <source src="/videos/hero-section.mp4" type="video/mp4" />
@@ -38,18 +40,18 @@ export default function Hero({ onExploreClick }) {
       </div>
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full relative z-20 flex flex-col justify-between min-h-[480px] lg:min-h-[520px]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full relative z-20 flex items-center h-full">
         
         {/* Main Left Editorial Block */}
-        <div className="max-w-xl my-auto pt-4 lg:pt-6 text-left">
+        <div className="max-w-lg lg:max-w-xl text-left py-4">
           {/* L A L I T H A spaced badge */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-4"
+            className="mb-3"
           >
-            <span className="font-serif text-[11px] sm:text-xs tracking-[0.45em] text-white/90 uppercase font-light drop-shadow-sm">
+            <span className="font-serif text-[10px] sm:text-[11px] tracking-[0.45em] text-white/90 uppercase font-light drop-shadow-sm">
               L A L I T H A
             </span>
           </motion.div>
@@ -59,7 +61,7 @@ export default function Hero({ onExploreClick }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white font-normal leading-[1.1] mb-5 tracking-tight drop-shadow-[0_4px_16px_rgba(7,20,38,0.5)]"
+            className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-white font-normal leading-[1.12] mb-4 tracking-tight drop-shadow-[0_4px_16px_rgba(7,20,38,0.5)]"
           >
             <span>Elegance That</span>
             <br />
@@ -72,7 +74,7 @@ export default function Hero({ onExploreClick }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex items-center gap-3.5 mb-8"
+            className="flex items-center gap-3 mb-6"
           >
             <span className="w-8 h-[1px] bg-white/70 shrink-0" />
             <p className="text-xs sm:text-sm text-platinum font-sans font-light tracking-wide drop-shadow-sm">
@@ -88,7 +90,7 @@ export default function Hero({ onExploreClick }) {
           >
             <button
               onClick={onExploreClick}
-              className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-btn-primary hover:bg-btn-hover border border-white/60 hover:border-white text-white text-[11px] sm:text-xs font-sans font-medium tracking-[0.2em] uppercase transition-all duration-300 shadow-xl shadow-midnight/60 group"
+              className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-btn-primary hover:bg-btn-hover border border-white/60 hover:border-white text-white text-[11px] sm:text-xs font-sans font-medium tracking-[0.2em] uppercase transition-all duration-300 shadow-xl shadow-midnight/60 group"
             >
               <span>EXPLORE COLLECTION</span>
               <ArrowRight className="w-3.5 h-3.5 text-white transform group-hover:translate-x-1 transition-transform" />
