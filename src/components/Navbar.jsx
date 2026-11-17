@@ -58,7 +58,7 @@ export default function Navbar({
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled 
-            ? "bg-white/95 backdrop-blur-md py-3.5 border-b border-border-card shadow-sm text-midnight" 
+            ? "bg-[#071426]/95 backdrop-blur-md py-3.5 border-b border-white/15 shadow-lg text-white" 
             : "bg-[#071426] py-3.5 sm:py-4 border-b border-white/10 text-white shadow-sm"
         }`}
       >
@@ -67,7 +67,7 @@ export default function Navbar({
           {/* Left: Official LALITHA Brand Logo */}
           <a href="#hero" className="flex items-center group select-none py-0.5">
             <img 
-              src={scrolled ? "/logo.svg" : "/logo-white.svg"} 
+              src="/logo-white.svg" 
               alt="Lalitha Jewellery" 
               className="h-9 sm:h-10 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
             />
@@ -89,23 +89,17 @@ export default function Navbar({
                     <a
                       href={link.href}
                       className={`relative py-1 flex items-center gap-1 transition-colors ${
-                        scrolled
-                          ? (isActive ? "text-midnight font-semibold" : "text-slate-navy/80 hover:text-midnight")
-                          : (isActive ? "text-white font-medium" : "text-white/80 hover:text-white")
+                        isActive ? "text-white font-medium" : "text-white/80 hover:text-white"
                       }`}
                     >
                       <span>{link.label}</span>
-                      <ChevronDown className={`w-3 h-3 transition-transform ${dropdownOpen ? "rotate-180" : ""} ${
-                        scrolled ? "text-slate-navy/70" : "text-white/70"
-                      }`} />
+                      <ChevronDown className={`w-3 h-3 transition-transform text-white/70 ${dropdownOpen ? "rotate-180" : ""}`} />
                       {isActive && (
-                        <span className={`absolute bottom-0 left-0 right-0 h-[1.5px] rounded-full ${
-                          scrolled ? "bg-btn-primary" : "bg-white"
-                        }`} />
+                        <span className="absolute bottom-0 left-0 right-0 h-[1.5px] rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
                       )}
                     </a>
 
-                    {/* Dropdown Menu (White Theme) */}
+                    {/* Dropdown Menu (Dark Blue Luxury Theme) */}
                     <AnimatePresence>
                       {dropdownOpen && (
                         <motion.div
@@ -113,19 +107,19 @@ export default function Navbar({
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 w-64 bg-white border border-border-card rounded-2xl shadow-xl p-2.5 mt-2 z-50 backdrop-blur-xl text-midnight"
+                          className="absolute top-full left-0 w-64 bg-[#0A1D36] border border-white/15 rounded-2xl shadow-2xl p-2.5 mt-2 z-50 backdrop-blur-xl text-white"
                         >
                           {collectionDropdownItems.map((item) => (
                             <a
                               key={item.label}
                               href={item.href}
                               onClick={() => setDropdownOpen(false)}
-                              className="block p-2.5 rounded-xl hover:bg-ivory transition-colors group"
+                              className="block p-2.5 rounded-xl hover:bg-white/10 transition-colors group"
                             >
-                              <div className="font-sans text-xs font-semibold text-midnight group-hover:text-btn-primary">
+                              <div className="font-sans text-xs font-semibold text-white group-hover:text-blue-200">
                                 {item.label}
                               </div>
-                              <div className="font-sans text-[10px] text-slate-navy/60">
+                              <div className="font-sans text-[10px] text-white/60">
                                 {item.desc}
                               </div>
                             </a>
@@ -142,16 +136,12 @@ export default function Navbar({
                   key={link.label}
                   href={link.href}
                   className={`relative py-1 flex items-center gap-1 transition-colors ${
-                    scrolled
-                      ? (isActive ? "text-midnight font-semibold" : "text-slate-navy/80 hover:text-midnight")
-                      : (isActive ? "text-white font-medium" : "text-white/80 hover:text-white")
+                    isActive ? "text-white font-medium" : "text-white/80 hover:text-white"
                   }`}
                 >
                   <span>{link.label}</span>
                   {isActive && (
-                    <span className={`absolute bottom-0 left-0 right-0 h-[1.5px] rounded-full ${
-                      scrolled ? "bg-btn-primary" : "bg-white"
-                    }`} />
+                    <span className="absolute bottom-0 left-0 right-0 h-[1.5px] rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
                   )}
                 </a>
               );
@@ -163,25 +153,19 @@ export default function Navbar({
             {/* Search Icon */}
             <button
               onClick={onOpenSearch}
-              className={`p-1.5 transition-colors ${
-                scrolled ? "text-slate-navy hover:text-midnight" : "text-white/90 hover:text-white"
-              }`}
+              className="p-1.5 transition-colors text-white/90 hover:text-white"
               aria-label="Search"
             >
               <Search className="w-4 h-4 stroke-[1.8]" />
             </button>
 
             {/* Subtle Vertical Divider Line */}
-            <span className={`w-[1px] h-4 hidden sm:inline-block ${
-              scrolled ? "bg-slate-navy/20" : "bg-white/30"
-            }`} />
+            <span className="w-[1px] h-4 hidden sm:inline-block bg-white/30" />
 
             {/* Wishlist Heart Icon */}
             <button
               onClick={onOpenWishlist}
-              className={`relative p-1.5 transition-colors hidden sm:block ${
-                scrolled ? "text-slate-navy hover:text-midnight" : "text-white/90 hover:text-white"
-              }`}
+              className="relative p-1.5 transition-colors hidden sm:block text-white/90 hover:text-white"
               aria-label="Wishlist"
             >
               <Heart className="w-4 h-4 stroke-[1.8]" />
@@ -195,18 +179,12 @@ export default function Navbar({
             {/* Shopping Bag Icon */}
             <button
               onClick={onOpenCart}
-              className={`relative p-1.5 transition-colors ${
-                scrolled ? "text-slate-navy hover:text-midnight" : "text-white/90 hover:text-white"
-              }`}
+              className="relative p-1.5 transition-colors text-white/90 hover:text-white"
               aria-label="Shopping Bag"
             >
               <ShoppingBag className="w-4 h-4 stroke-[1.8]" />
               {cartCount > 0 && (
-                <span className={`absolute -top-1 -right-1 w-3.5 h-3.5 text-[9px] font-bold rounded-full flex items-center justify-center ${
-                  scrolled 
-                    ? "bg-btn-primary text-white" 
-                    : "bg-white text-midnight"
-                }`}>
+                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-white text-midnight text-[9px] font-bold rounded-full flex items-center justify-center shadow-sm">
                   {cartCount}
                 </span>
               )}
@@ -215,9 +193,7 @@ export default function Navbar({
             {/* Mobile Menu Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className={`lg:hidden p-1.5 transition-colors ${
-                scrolled ? "text-slate-navy hover:text-midnight" : "text-white/90 hover:text-white"
-              }`}
+              className="lg:hidden p-1.5 transition-colors text-white/90 hover:text-white"
               aria-label="Menu"
             >
               <Menu className="w-5 h-5" />
@@ -234,16 +210,16 @@ export default function Navbar({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-white p-6 flex flex-col justify-between text-midnight"
+            className="fixed inset-0 z-50 bg-[#071426] p-6 flex flex-col justify-between text-white"
           >
             <div>
-              <div className="flex items-center justify-between pb-6 border-b border-border-card">
+              <div className="flex items-center justify-between pb-6 border-b border-white/10">
                 <div className="flex items-center">
-                  <img src="/logo.svg" alt="Lalitha Jewellery" className="h-8 w-auto object-contain" />
+                  <img src="/logo-white.svg" alt="Lalitha Jewellery" className="h-8 w-auto object-contain" />
                 </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 text-slate-navy hover:text-midnight"
+                  className="p-2 text-white/70 hover:text-white"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -255,7 +231,7 @@ export default function Navbar({
                     key={link.label}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block text-lg font-serif text-slate-navy hover:text-midnight tracking-wide"
+                    className="block text-lg font-serif text-white/90 hover:text-white tracking-wide"
                   >
                     {link.label}
                   </a>
@@ -263,9 +239,9 @@ export default function Navbar({
               </div>
             </div>
 
-            <div className="pt-6 border-t border-border-card text-xs text-slate-navy/70 space-y-2">
+            <div className="pt-6 border-t border-white/10 text-xs text-white/60 space-y-2">
               <p>Timeless Diamond Jewellery &bull; Platinum 950</p>
-              <p className="font-mono text-[11px] text-midnight">concierge@lalithajewels.com</p>
+              <p className="font-mono text-[11px] text-white">concierge@lalithajewels.com</p>
             </div>
           </motion.div>
         )}
