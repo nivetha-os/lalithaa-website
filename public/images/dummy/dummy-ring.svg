@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0E233D" />
+      <stop offset="60%" stop-color="#071426" />
+      <stop offset="100%" stop-color="#040B15" />
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="silver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#CFD6E4" />
+      <stop offset="100%" stop-color="#9AA6BD" />
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="600" height="600" rx="24" fill="url(#bgGrad)" />
+  <circle cx="300" cy="270" r="170" fill="url(#glow)" />
+  <rect x="24" y="24" width="552" height="552" rx="16" fill="none" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1.2" stroke-dasharray="8 6" />
+
+  <!-- Solitaire Diamond Ring -->
+  <g filter="url(#softGlow)" transform="translate(300, 270)">
+    <!-- Ring Band (Circular/Oval in Perspective) -->
+    <ellipse cx="0" cy="20" rx="90" ry="70" fill="none" stroke="url(#silver)" stroke-width="10" />
+    <ellipse cx="0" cy="20" rx="80" ry="60" fill="none" stroke="#040B15" stroke-width="2" opacity="0.6" />
+
+    <!-- Ring Prongs Mounting -->
+    <path d="M -22 -45 L -10 -15 L 10 -15 L 22 -45" stroke="url(#silver)" stroke-width="4" fill="none" />
+    <line x1="-30" y1="-45" x2="30" y2="-45" stroke="url(#silver)" stroke-width="3" />
+
+    <!-- Solitaire Diamond Crown -->
+    <!-- Brilliant Cut Geometry -->
+    <polygon points="0,-100 -40,-60 -25,-45 25,-45 40,-60" fill="#FFFFFF" stroke="url(#silver)" stroke-width="2" />
+    <polygon points="0,-100 -25,-45 25,-45" fill="#F1F4F9" opacity="0.9" />
+    <polygon points="0,-100 0,-45" stroke="#ADB6CB" stroke-width="1.5" />
+    <polygon points="-40,-60 0,-100 40,-60" fill="#FFFFFF" opacity="0.8" />
+    <polygon points="-40,-60 -20,-75 20,-75 40,-60" fill="#FFFFFF" stroke="url(#silver)" stroke-width="1.2" />
+
+    <!-- Table Facet -->
+    <rect x="-18" y="-78" width="36" height="8" fill="#FFFFFF" />
+  </g>
+
+  <!-- Sparkles -->
+  <g fill="#FFFFFF" opacity="0.95">
+    <path d="M 300 160 L 303 172 L 315 175 L 303 178 L 300 190 L 297 178 L 285 175 L 297 172 Z" />
+    <path d="M 260 195 L 261 201 L 267 202 L 261 203 L 260 209 L 259 203 L 253 202 L 259 201 Z" opacity="0.8" />
+    <path d="M 340 195 L 341 201 L 347 202 L 341 203 L 340 209 L 339 203 L 333 202 L 339 201 Z" opacity="0.8" />
+  </g>
+
+  <text x="300" y="475" text-anchor="middle" font-family="'Cinzel', Georgia, serif" font-size="14" fill="#FFFFFF" letter-spacing="4" opacity="0.95">LALITHA</text>
+  <text x="300" y="502" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="11" fill="#ADB6CB" letter-spacing="3" text-transform="uppercase">Haute Joaillerie &bull; Solitaire Ring</text>
+</svg>

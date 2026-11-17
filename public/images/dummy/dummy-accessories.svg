@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0E233D" />
+      <stop offset="60%" stop-color="#071426" />
+      <stop offset="100%" stop-color="#040B15" />
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="silver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#CFD6E4" />
+      <stop offset="100%" stop-color="#9AA6BD" />
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="600" height="600" rx="24" fill="url(#bgGrad)" />
+  <circle cx="300" cy="270" r="170" fill="url(#glow)" />
+  <rect x="24" y="24" width="552" height="552" rx="16" fill="none" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1.2" stroke-dasharray="8 6" />
+
+  <!-- Royal Floral Diamond Brooch / Tiara Motif -->
+  <g filter="url(#softGlow)" transform="translate(300, 260)">
+    <!-- Central Cluster -->
+    <circle cx="0" cy="0" r="14" fill="#FFFFFF" stroke="url(#silver)" stroke-width="2" />
+    <circle cx="0" cy="0" r="5" fill="#071426" opacity="0.6" />
+
+    <!-- 8 Floral Diamond Petals around center -->
+    <path d="M 0 -20 C -12 -38 12 -38 0 -20 Z" fill="#FFFFFF" stroke="url(#silver)" stroke-width="1.5" />
+    <path d="M 0 20 C -12 38 12 38 0 20 Z" fill="#FFFFFF" stroke="url(#silver)" stroke-width="1.5" />
+    <path d="M -20 0 C -38 -12 -38 12 -20 0 Z" fill="#FFFFFF" stroke="url(#silver)" stroke-width="1.5" />
+    <path d="M 20 0 C 38 -12 38 12 20 0 Z" fill="#FFFFFF" stroke="url(#silver)" stroke-width="1.5" />
+
+    <path d="M -14 -14 C -28 -28 -14 -42 0 -28 Z" fill="#FFFFFF" opacity="0.9" />
+    <path d="M 14 -14 C 28 -28 42 -14 28 0 Z" fill="#FFFFFF" opacity="0.9" />
+    <path d="M -14 14 C -28 28 -42 14 -28 0 Z" fill="#FFFFFF" opacity="0.9" />
+    <path d="M 14 14 C 28 28 14 42 0 28 Z" fill="#FFFFFF" opacity="0.9" />
+
+    <!-- Outer Marquise Accent Rays -->
+    <ellipse cx="0" cy="-60" rx="8" ry="16" fill="url(#silver)" stroke="#FFFFFF" stroke-width="1" />
+    <circle cx="0" cy="-84" r="5" fill="#FFFFFF" />
+
+    <ellipse cx="0" cy="60" rx="8" ry="16" fill="url(#silver)" stroke="#FFFFFF" stroke-width="1" />
+    <circle cx="0" cy="84" r="5" fill="#FFFFFF" />
+
+    <ellipse cx="-60" cy="0" rx="16" ry="8" fill="url(#silver)" stroke="#FFFFFF" stroke-width="1" />
+    <circle cx="-84" cy="0" r="5" fill="#FFFFFF" />
+
+    <ellipse cx="60" cy="0" rx="16" ry="8" fill="url(#silver)" stroke="#FFFFFF" stroke-width="1" />
+    <circle cx="84" cy="0" r="5" fill="#FFFFFF" />
+  </g>
+
+  <!-- Sparkles -->
+  <g fill="#FFFFFF" opacity="0.9">
+    <path d="M 300 145 L 302 153 L 310 155 L 302 157 L 300 165 L 298 157 L 290 155 L 298 153 Z" />
+    <path d="M 300 375 L 302 383 L 310 385 L 302 387 L 300 395 L 298 387 L 290 385 L 298 383 Z" />
+    <path d="M 185 260 L 186 266 L 192 267 L 186 268 L 185 274 L 184 268 L 178 267 L 184 266 Z" opacity="0.8" />
+    <path d="M 415 260 L 416 266 L 422 267 L 416 268 L 415 274 L 414 268 L 408 267 L 414 266 Z" opacity="0.8" />
+  </g>
+
+  <text x="300" y="475" text-anchor="middle" font-family="'Cinzel', Georgia, serif" font-size="14" fill="#FFFFFF" letter-spacing="4" opacity="0.95">LALITHA</text>
+  <text x="300" y="502" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="11" fill="#ADB6CB" letter-spacing="3" text-transform="uppercase">Haute Joaillerie &bull; Fashion Accessories</text>
+</svg>

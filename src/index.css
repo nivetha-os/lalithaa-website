@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #FFFBF3;
+  }
+  
+  body {
+    background-color: #FFFBF3;
+    color: #071426;
+    overflow-x: hidden;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom Luxury Platinum Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FFFBF3;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+  }
+}
+
+@layer utilities {
+  .text-platinum-gradient {
+    background: linear-gradient(135deg, #FFFFFF 0%, #E0E1DD 50%, #ADB6CB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .platinum-shimmer-btn {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .platinum-shimmer-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      60deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+    transform: rotate(25deg);
+    transition: all 0.75s ease;
+  }
+
+  .platinum-shimmer-btn:hover::after {
+    left: 100%;
+    top: 100%;
+  }
+}

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0E233D" />
+      <stop offset="60%" stop-color="#071426" />
+      <stop offset="100%" stop-color="#040B15" />
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="silver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#CFD6E4" />
+      <stop offset="100%" stop-color="#9AA6BD" />
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="600" height="600" rx="24" fill="url(#bgGrad)" />
+  <circle cx="300" cy="270" r="170" fill="url(#glow)" />
+  <rect x="24" y="24" width="552" height="552" rx="16" fill="none" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1.2" stroke-dasharray="8 6" />
+
+  <!-- Tennis Bracelet Oval Perspective -->
+  <g filter="url(#softGlow)" transform="translate(300, 260)">
+    <!-- Base Bangle Oval -->
+    <ellipse cx="0" cy="0" rx="170" ry="75" fill="none" stroke="url(#silver)" stroke-width="4.5" />
+    <ellipse cx="0" cy="0" rx="162" ry="67" fill="none" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="1" stroke-dasharray="3 5" />
+
+    <!-- Diamond Studs around circumference -->
+    <!-- Back row (smaller) -->
+    <circle cx="-130" cy="-45" r="5" fill="#FFFFFF" opacity="0.85" />
+    <circle cx="-90" cy="-60" r="5" fill="#FFFFFF" opacity="0.85" />
+    <circle cx="-45" cy="-70" r="5.5" fill="#FFFFFF" opacity="0.85" />
+    <circle cx="0" cy="-75" r="6" fill="#FFFFFF" opacity="0.9" />
+    <circle cx="45" cy="-70" r="5.5" fill="#FFFFFF" opacity="0.85" />
+    <circle cx="90" cy="-60" r="5" fill="#FFFFFF" opacity="0.85" />
+    <circle cx="130" cy="-45" r="5" fill="#FFFFFF" opacity="0.85" />
+
+    <!-- Front row (larger with shine) -->
+    <circle cx="-170" cy="0" r="6.5" fill="#FFFFFF" />
+    <circle cx="-150" cy="35" r="7" fill="#FFFFFF" />
+    <circle cx="-110" cy="58" r="7.5" fill="#FFFFFF" />
+    <circle cx="-60" cy="71" r="8" fill="#FFFFFF" />
+    <circle cx="0" cy="75" r="8.5" fill="#FFFFFF" stroke="url(#silver)" stroke-width="1" />
+    <circle cx="60" cy="71" r="8" fill="#FFFFFF" />
+    <circle cx="110" cy="58" r="7.5" fill="#FFFFFF" />
+    <circle cx="150" cy="35" r="7" fill="#FFFFFF" />
+    <circle cx="170" cy="0" r="6.5" fill="#FFFFFF" />
+
+    <!-- Focal Clasp Diamond -->
+    <rect x="-8" y="67" width="16" height="16" rx="2" fill="url(#silver)" />
+    <circle cx="0" cy="75" r="4" fill="#071426" />
+  </g>
+
+  <!-- Sparkles -->
+  <g fill="#FFFFFF" opacity="0.95">
+    <path d="M 300 335 L 302 343 L 310 345 L 302 347 L 300 355 L 298 347 L 290 345 L 298 343 Z" />
+    <path d="M 190 318 L 191 324 L 197 325 L 191 326 L 190 332 L 189 326 L 183 325 L 189 324 Z" opacity="0.8" />
+    <path d="M 410 318 L 411 324 L 417 325 L 411 326 L 410 332 L 409 326 L 403 325 L 409 324 Z" opacity="0.8" />
+  </g>
+
+  <text x="300" y="475" text-anchor="middle" font-family="'Cinzel', Georgia, serif" font-size="14" fill="#FFFFFF" letter-spacing="4" opacity="0.95">LALITHA</text>
+  <text x="300" y="502" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="11" fill="#ADB6CB" letter-spacing="3" text-transform="uppercase">Haute Joaillerie &bull; Tennis Bracelet</text>
+</svg>
