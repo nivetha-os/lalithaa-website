@@ -40,13 +40,13 @@ export default function QuickViewModal({
             <X className="w-4 h-4" />
           </button>
 
-          {/* Left: Product Image */}
-          <div className="md:w-1/2 p-8 bg-white flex items-center justify-center border-b md:border-b-0 md:border-r border-border-card">
+          {/* Left: Luxury Dark Velvet Product Image Showcase */}
+          <div className="md:w-1/2 p-6 sm:p-8 bg-[#071426] flex items-center justify-center border-b md:border-b-0 md:border-r border-white/10 relative overflow-hidden">
             <img
               src={product.image}
               alt={product.name}
               onError={(e) => handleImageError(e, product.category || product.categoryId)}
-              className="max-h-72 w-auto object-contain"
+              className="w-full max-h-80 aspect-square object-cover rounded-2xl shadow-2xl"
             />
           </div>
 

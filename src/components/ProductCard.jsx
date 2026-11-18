@@ -66,25 +66,22 @@ export default function ProductCard({
         </motion.button>
       </div>
 
-      {/* Product Image Area / Accessory Display Pad ("Dark Blue Attai" like Discover Your Style) */}
-      <div className={`w-full h-44 sm:h-48 flex items-center justify-center my-2 overflow-hidden relative rounded-xl transition-all duration-300 ${
+      {/* Product Image Area / Accessory Display Pad */}
+      <div className={`w-full aspect-square flex items-center justify-center my-2 overflow-hidden relative rounded-xl transition-all duration-300 ${
         isDark 
-          ? "bg-[#071933]/70 border border-white/10 p-2.5 shadow-inner" 
-          : "bg-gradient-to-b from-[#0A1D36] via-[#071933] to-[#040E1C] border border-[#0A2240] p-2.5 shadow-md group-hover:border-slate-navy/50"
+          ? "bg-[#071426] shadow-md" 
+          : "bg-[#071426] shadow-md group-hover:shadow-lg"
       }`}>
         <img
           src={product.image || fallbackImg}
           alt={product.name}
           onError={(e) => handleImageError(e, product.category || product.categoryId)}
-          className="w-full h-full object-cover rounded-lg transform transition-transform duration-700 ease-out group-hover:scale-110 drop-shadow-xl"
+          className="w-full h-full object-cover transform transition-transform duration-500 ease-out group-hover:scale-105 drop-shadow-xl"
           loading="lazy"
         />
 
-        {/* Subtle royal blue gradient vignette overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071426]/60 via-transparent to-[#071426]/20 pointer-events-none" />
-
         {/* Luxury Diamond Light Shimmer Sweep across the jewel on hover */}
-        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none skew-x-12" />
+        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none skew-x-12" />
 
         {/* Twinkling 4-Point Diamond Sparkle Icon on Hover */}
         <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110 pointer-events-none text-white/90 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
@@ -110,8 +107,8 @@ export default function ProductCard({
           {product.category}
         </p>
 
-        <h3 className={`text-xs sm:text-sm font-sans font-semibold truncate mb-1.5 group-hover:text-btn-primary transition-colors ${
-          isDark ? "text-white group-hover:text-blue-200" : "text-midnight group-hover:text-btn-primary"
+        <h3 className={`text-xs sm:text-sm font-sans font-semibold truncate mb-1.5 transition-colors ${
+          isDark ? "text-white group-hover:text-amber-300" : "text-midnight group-hover:text-[#9A7B38]"
         }`}>
           {product.name}
         </h3>

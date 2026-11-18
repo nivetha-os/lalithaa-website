@@ -34,7 +34,7 @@ export default function RingsSection({ wishlist = [], onToggleWishlist, onAddToC
               </span>
               <span className="w-8 h-[1px] bg-white/30" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-normal tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white hover:text-amber-300 transition-colors duration-300 font-normal tracking-tight cursor-default">
               Solitaire & Diamond Rings
             </h2>
             <p className="text-xs sm:text-sm text-platinum/70 font-sans font-light mt-2 max-w-xl">
@@ -45,7 +45,7 @@ export default function RingsSection({ wishlist = [], onToggleWishlist, onAddToC
           <motion.a
             whileHover={{ x: 5 }}
             href="#collections"
-            className="inline-flex items-center gap-2 text-xs font-sans font-semibold text-white/90 hover:text-white tracking-wider uppercase transition-colors group"
+            className="inline-flex items-center gap-2 text-xs font-sans font-semibold text-white/90 hover:text-amber-300 tracking-wider uppercase transition-colors group"
           >
             <span>View All Rings</span>
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform" />

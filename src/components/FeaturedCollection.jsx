@@ -103,23 +103,23 @@ export default function FeaturedCollection({
                     </motion.button>
                   </div>
 
-                  {/* Product Diamond Image on Dark Blue Attai with Shimmer */}
-                  <div className="w-full h-28 sm:h-32 flex items-center justify-center my-1 overflow-hidden relative rounded-xl bg-gradient-to-b from-[#0A1D36] via-[#071933] to-[#040E1C] border border-[#0A2240] p-1.5 shadow-inner">
+                  {/* Product Diamond Image Pad */}
+                  <div className="w-full aspect-square flex items-center justify-center my-1.5 overflow-hidden relative rounded-xl bg-[#071426] shadow-md">
                     <img
                       src={product.image}
                       alt={product.name}
                       onError={(e) => handleImageError(e, product.category || product.categoryId)}
-                      className="w-full h-full object-cover rounded-lg transform transition-transform duration-700 ease-out group-hover:scale-110 drop-shadow-md"
+                      className="w-full h-full object-cover rounded-xl transform transition-transform duration-500 ease-out group-hover:scale-105"
                       loading="lazy"
                     />
 
                     {/* Diamond Light Sweep / Shimmer */}
-                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none skew-x-12" />
+                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none skew-x-12" />
                   </div>
 
                   {/* Product Details */}
                   <div className="pt-2 border-t border-platinum/40">
-                    <h3 className="text-xs sm:text-[13px] font-sans font-medium text-midnight truncate mb-1 group-hover:text-btn-primary transition-colors">
+                    <h3 className="text-xs sm:text-[13px] font-sans font-medium text-midnight truncate mb-1 group-hover:text-[#9A7B38] transition-colors">
                       {product.name}
                     </h3>
                     <p className="text-xs sm:text-[13px] font-sans font-bold text-midnight">
@@ -146,7 +146,7 @@ export default function FeaturedCollection({
                 src="/images/custom/story_brooch.jpg"
                 alt="Our Story Diamond Brooch"
                 onError={(e) => handleImageError(e, 'accessories')}
-                className="w-full h-full object-cover object-center opacity-85 transform transition-transform duration-700 ease-out group-hover:scale-108"
+                className="w-full h-full object-contain object-right opacity-90 p-2 transform transition-transform duration-700 ease-out group-hover:scale-105"
                 loading="lazy"
               />
               {/* Dark Blue gradient to seamlessly blend text */}

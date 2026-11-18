@@ -50,7 +50,7 @@ export default function Navbar({
     { label: "Diamond Necklaces", href: "#necklaces", desc: "Cascades & Solitaire Rivières" },
     { label: "Diamond Earrings", href: "#earrings", desc: "Chandelier Drops & Studs" },
     { label: "Tennis Bracelets", href: "#bracelets", desc: "Eternity Diamond Lines" },
-    { label: "Solitaire Rings", href: "#rings", desc: "GIA D-Flawless Masterpieces" },
+    { label: "Solitaire & Diamond Rings", href: "#rings", desc: "GIA D-Flawless Masterpieces" },
   ];
 
   return (
@@ -114,12 +114,12 @@ export default function Navbar({
                               key={item.label}
                               href={item.href}
                               onClick={() => setDropdownOpen(false)}
-                              className="block p-2.5 rounded-xl hover:bg-white/10 transition-colors group"
+                              className="block p-2.5 rounded-xl hover:bg-[#0D2444] border border-transparent hover:border-amber-300/40 transition-all group"
                             >
-                              <div className="font-sans text-xs font-semibold text-white group-hover:text-blue-200">
+                              <div className="font-sans text-xs font-semibold text-white group-hover:text-amber-300 transition-colors drop-shadow-sm">
                                 {item.label}
                               </div>
-                              <div className="font-sans text-[10px] text-white/60">
+                              <div className="font-sans text-[10px] text-white/60 group-hover:text-white/95 transition-colors">
                                 {item.desc}
                               </div>
                             </a>

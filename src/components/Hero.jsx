@@ -14,14 +14,16 @@ export default function Hero({ onExploreClick }) {
   return (
     <section 
       id="hero" 
-      className="relative w-full mt-16 sm:mt-[68px] h-[480px] sm:h-[520px] md:h-[550px] lg:h-[580px] xl:h-[620px] bg-[#071426] overflow-hidden flex items-center"
+      className="relative w-full mt-16 sm:mt-[68px] h-[calc(100vh-64px)] sm:h-[calc(100vh-68px)] min-h-[580px] max-h-[850px] bg-[#071426] overflow-hidden flex items-center"
     >
       {/* =========================================================================
           BACKGROUND: 100% Crystal-Clear Full-Cover AI Fashion Video
-          - Positioned with inset-0 inside section which starts strictly below navbar
-            (mt-16 sm:mt-[68px]), so video CANNOT touch, cover, or disturb header navbar.
-          - Y-aligned to ~60% so face, earrings, and full necklace are completely visible
-            within the compact, elegant hero height.
+          - Covers 100% of the hero section without any black bars or side gaps
+            (no horizontal translate offset).
+          - Natural scale without extreme zoom, keeping the head, face, earrings,
+            and full diamond necklace completely visible and uncut.
+          - Section starts strictly below navbar (mt-16 sm:mt-[68px]), so video
+            never enters or disturbs the header navbar.
           ========================================================================= */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Full-Cover HTML5 AI Fashion Video */}
@@ -32,7 +34,7 @@ export default function Hero({ onExploreClick }) {
           loop
           playsInline
           poster="/images/hero-poster.jpg"
-          className="w-full h-full object-cover object-[46%_64%] sm:object-[42%_62%] md:object-[38%_60%] lg:object-[35%_58%] xl:object-[32%_56%] translate-x-4 sm:translate-x-8 md:translate-x-12 lg:translate-x-16 transition-all duration-500"
+          className="w-full h-full object-cover object-[center_48%] sm:object-[center_50%]"
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
           <source src="/videos/hero-section.mp4" type="video/mp4" />

@@ -9,59 +9,59 @@ export default function NecklacesSection({ wishlist = [], onToggleWishlist, onAd
   // 5 Signature Haute Diamantaire Necklaces matching the Reference Design
   const necklaces = [
     {
-      id: "p1",
+      id: "p_emerald_sapphire_choker",
       number: "01",
-      tag: "IGI / GIA CERTIFIED",
-      name: "Celestial Grace Necklace",
-      subCategory: "SOLITAIRE DIAMONDS",
-      metal: "PLATINUM 950",
-      priceFormatted: "₹ 1,49,999",
-      image: "/images/products/blue_celestial_necklace.jpg",
-      description: "An ethereal cascade of brilliant-cut diamonds, meticulously set in platinum to celebrate timeless elegance.",
+      tag: "HIGH JOAILLERIE",
+      name: "Emerald & Sapphire Royal Choker Suite",
+      subCategory: "ZAMBIAN EMERALD & CEYLON SAPPHIRE",
+      metal: "18KT WHITE GOLD & PLATINUM",
+      priceFormatted: "₹ 5,80,000",
+      image: "/images/products/real/emerald_sapphire_choker_set.jpg",
+      description: "Imperial ceremonial collar set with tiers of rich Zambian emeralds, cabochon sapphire accents, and matching statement drop earrings.",
     },
     {
-      id: "p4",
+      id: "p_layered_haaram",
       number: "02",
-      tag: "BESPOKE MASTERPIECE",
-      name: "Imperial Diamond Rivière Collar",
-      subCategory: "RIVIÈRE DIAMONDS",
-      metal: "SOLID PLATINUM 950",
-      priceFormatted: "₹ 2,85,000",
-      image: "/images/products/blue_diamond_chain.jpg",
-      description: "A continuous graduated cascade of D-color diamonds with flawless laser-etched platinum baskets.",
+      tag: "IMPERIAL BRIDAL",
+      name: "Grand 3-Tier Layered Diamond & Emerald Haaram",
+      subCategory: "TRIPLE-STRAND RANI HAAR",
+      metal: "18KT WHITE GOLD",
+      priceFormatted: "₹ 7,20,000",
+      image: "/images/products/real/layered_diamond_haaram.jpg",
+      description: "Opulent triple-strand bridal haaram cascading with calibrated brilliant diamond rivières and an elaborate emerald-centered medallion pendant.",
+    },
+    {
+      id: "p_ruby_choker",
+      number: "03",
+      tag: "ROYAL HERITAGE",
+      name: "Regal Ruby & Diamond Cascade Choker",
+      subCategory: "PIGEON BLOOD RUBY & DIAMONDS",
+      metal: "18KT WHITE GOLD",
+      priceFormatted: "₹ 4,85,000",
+      image: "/images/products/real/ruby_cascade_choker.jpg",
+      description: "Majestic high-jewellery collar adorned with cushions of pigeon-blood rubies, brilliant diamond florets, and pear-cut droplets.",
     },
     {
       id: "p5",
-      number: "03",
-      tag: "ROYAL HERITAGE",
-      name: "Empress Royal Choker Suite",
-      subCategory: "HERITAGE CHOKER",
-      metal: "18KT WHITE GOLD",
-      priceFormatted: "₹ 3,40,000",
-      image: "/images/products/blue_diamond_choker.jpg",
-      description: "A regal choker of interlocking diamond motifs sculpted for exceptional neck contouring and brilliant dispersion.",
-    },
-    {
-      id: "p6",
       number: "04",
-      tag: "ICONIC SOLITAIRE",
-      name: "Aurora Solitaire Drop Pendant",
-      subCategory: "SOLITAIRE DIAMONDS",
-      metal: "PLATINUM 950",
-      priceFormatted: "₹ 1,15,000",
-      image: "/images/products/blue_solitaire_pendant.jpg",
-      description: "A show-stopping 3.0 carat focal diamond drop dangling from an exquisite diamond-encrusted platinum link chain.",
+      tag: "HAUTE DIAMANTAIRE",
+      name: "White Gold Emerald Barrel Choker Suite",
+      subCategory: "EMERALD ARCHES & DROPS",
+      metal: "18KT WHITE GOLD & PLATINUM",
+      priceFormatted: "₹ 5,20,000",
+      image: "/images/products/real/emerald_barrel_choker_set.jpg",
+      description: "Architectural masterpiece collar composed of fluted emerald barrels alternating with diamond arches and tiered chandelier drop earrings.",
     },
     {
-      id: "p16",
+      id: "p1",
       number: "05",
-      tag: "IGI / GIA CERTIFIED",
-      name: "Seraphina Pear Diamond Collar",
-      subCategory: "CASCADE DIAMONDS",
-      metal: "PLATINUM 950",
-      priceFormatted: "₹ 3,95,000",
-      image: "/images/products/blue_celestial_necklace.jpg",
-      description: "Articulated pear-brilliant and marquise natural diamonds in a luminous graduated chevron collar silhouette.",
+      tag: "BESPOKE MASTERPIECE",
+      name: "White Gold Diamond Necklace Set",
+      subCategory: "SOLITAIRE & EMERALD SUITE",
+      metal: "18KT WHITE GOLD",
+      priceFormatted: "₹ 3,85,000",
+      image: "/images/products/real/white_gold_necklace_set.jpg",
+      description: "Spectacular bridal necklace set featuring a luminous emerald-cut focal gemstone surrounded by multi-tiered brilliant diamond drops with matching earrings.",
     }
   ];
 
@@ -242,12 +242,12 @@ export default function NecklacesSection({ wishlist = [], onToggleWishlist, onAd
                 </div>
 
                 {/* 2. Card Image Container with "CLICK TO VIEW 3D DETAILS" Pill */}
-                <div className="relative w-full h-52 sm:h-60 rounded-xl overflow-hidden my-3 bg-gradient-to-b from-[#0A1D36] via-[#071933] to-[#040E1C] border border-[#0A2240] p-2 flex items-center justify-center group/img">
+                <div className="relative w-full aspect-square rounded-xl overflow-hidden my-3 bg-[#071426] flex items-center justify-center group/img shadow-md">
                   <img
                     src={item.image}
                     alt={item.name}
                     onError={(e) => handleImageError(e, 'necklaces')}
-                    className="w-full h-full object-cover rounded-lg transform transition-transform duration-700 ease-out group-hover/img:scale-110 drop-shadow-2xl"
+                    className="w-full h-full object-cover rounded-xl transform transition-transform duration-500 ease-out group-hover/img:scale-105"
                     loading="lazy"
                   />
 

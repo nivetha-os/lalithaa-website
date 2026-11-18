@@ -86,12 +86,12 @@ export default function BrandStorySection({ onKnowMore }) {
             transition={{ duration: 0.85, ease: [0.25, 0.1, 0.25, 1.0] }}
             className="lg:col-span-6 relative"
           >
-            <div className="relative rounded-3xl overflow-hidden border border-border-card shadow-2xl bg-midnight h-[360px] sm:h-[420px] group">
+            <div className="relative rounded-3xl overflow-hidden border border-border-card shadow-2xl bg-midnight h-[360px] sm:h-[420px] flex items-center justify-center p-4 group">
               <img
                 src="/images/custom/story_brooch.jpg"
                 alt="Lalitha Master Diamond Brooch"
                 onError={(e) => handleImageError(e, 'accessories')}
-                className="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out"
+                className="w-full h-full object-contain p-2 object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-transparent to-transparent pointer-events-none" />
 

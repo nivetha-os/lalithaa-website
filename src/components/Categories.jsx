@@ -47,19 +47,19 @@ export default function Categories({ onSelectCategory }) {
                 whileHover={{ y: -6, scale: 1.02, transition: { type: "spring", stiffness: 350, damping: 25 } }}
                 transition={{ duration: 0.6, delay: idx * 0.09, ease: [0.21, 1.02, 0.49, 0.99] }}
                 onClick={() => onSelectCategory && onSelectCategory(cat.id)}
-                className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0A1D36] cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 h-[140px] sm:h-[160px] lg:h-[175px] flex flex-col justify-end p-4 border border-white/10 hover:border-white/30"
+                className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0A1D36] cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 h-[150px] sm:h-[170px] lg:h-[185px] flex flex-col justify-end p-4 border border-white/10 hover:border-amber-300/40"
               >
                 {/* Background Diamond Photography on Navy Silk */}
-                <div className="absolute inset-0 overflow-hidden bg-[#071426]">
+                <div className="absolute inset-0 overflow-hidden bg-[#071426] flex items-center justify-center">
                   <img
                     src={cat.image}
                     alt={cat.title}
                     onError={(e) => handleImageError(e, cat.id)}
-                    className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-115 opacity-95"
+                    className="w-full h-full object-cover object-center transform transition-transform duration-500 ease-out group-hover:scale-105 opacity-95"
                     loading="lazy"
                   />
                   {/* Dark Blue Gradient Overlay for crisp white text */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#071426]/95 via-[#071426]/35 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071426]/90 via-[#071426]/25 to-transparent pointer-events-none" />
 
                   {/* Shimmer sweep on hover */}
                   <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none skew-x-12" />
@@ -67,11 +67,11 @@ export default function Categories({ onSelectCategory }) {
 
                 {/* Title & Arrow at the bottom with slide animation */}
                 <div className="relative z-10 flex items-center justify-between text-white">
-                  <span className="text-xs sm:text-[13px] font-sans font-medium tracking-wide group-hover:text-blue-100 transition-colors">
+                  <span className="text-xs sm:text-[13px] font-sans font-medium tracking-wide text-white group-hover:text-amber-300 transition-colors drop-shadow-md">
                     {cat.title}
                   </span>
-                  <div className="w-5 h-5 rounded-full bg-white/10 group-hover:bg-white/25 flex items-center justify-center transition-colors">
-                    <ArrowRight className="w-3 h-3 text-white transform group-hover:translate-x-0.5 transition-transform" />
+                  <div className="w-5 h-5 rounded-full bg-white/10 group-hover:bg-amber-300/30 flex items-center justify-center transition-colors">
+                    <ArrowRight className="w-3 h-3 text-white group-hover:text-amber-300 transform group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
               </motion.div>
